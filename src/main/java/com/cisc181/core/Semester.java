@@ -7,13 +7,15 @@ public class Semester {
 	private UUID SemesterID;
 	private Date StartDate, EndDate;
 	
-	// constructor and get/set methods
+	// constructor
 	public Semester(UUID semesterID, Date startDate, Date endDate) {
 		SemesterID = semesterID;
 		StartDate = startDate;
 		EndDate = endDate;
 	}
-
+	// didn't implement methods because the question didn't ask for them.
+	// Have them here for testing though.
+	/*
 	public UUID getSemesterID() {
 		return SemesterID;
 	}
@@ -36,5 +38,5 @@ public class Semester {
 
 	public void setEndDate(Date endDate) {
 		EndDate = endDate;
-	}
+	}*/
 }

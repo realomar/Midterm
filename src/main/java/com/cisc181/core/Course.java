@@ -1,5 +1,6 @@
 package com.cisc181.core;
 import java.util.UUID;
+import com.cisc181.eNums.eMajor;
 
 public class Course {
 	
@@ -7,14 +8,18 @@ public class Course {
 	private UUID CourseID;
 	private String CourseName;
 	private int GradePoints;
+	private eMajor Major;
 	
-	// putting in basic constructor and get/set methods
-	public Course(UUID courseID, String courseName, int gradePoints) {
+	// putting in basic constructor
+	public Course(UUID courseID, String courseName, int gradePoints, eMajor Major) {
 		CourseID = courseID;
 		CourseName = courseName;
 		GradePoints = gradePoints;
+		this.Major = Major;
 	}
-
+	// didn't implement methods because the question didn't ask for them.
+	// Have them here for testing though.
+	/*
 	public UUID getCourseID() {
 		return CourseID;
 	}
@@ -37,7 +42,5 @@ public class Course {
 
 	public void setGradePoints(int gradePoints) {
 		GradePoints = gradePoints;
-	}
-	
-	
+	}*/	
 }
