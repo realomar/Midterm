@@ -65,8 +65,12 @@ public abstract class Person implements java.io.Serializable {
 	
 	}
 
-	public String getPhone() {
-		return phone_number;
+	public String getPhone() throws PersonException {
+		String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(this.phone_number);
+		if(matcher.matches()) {return phone_number;}
+		else {throw new PersonException("Phone number is incorrectly formatted.");}
 	}
 
 	public void setEmail(String newEmail) {
@@ -98,7 +102,7 @@ public abstract class Person implements java.io.Serializable {
 		this.address = Address;
 		this.setPhone(Phone_number);
 		this.email_address = Email;
-		
+	
 	}
 
 	public void PrintName() {
@@ -110,7 +114,7 @@ public abstract class Person implements java.io.Serializable {
 		System.out.println(this.DOB);
 	}
 
-	public int PrintAge() {
+	public int PrintAge() throws PersonException {
 		Calendar today = Calendar.getInstance();
 		Calendar birthDate = Calendar.getInstance();
 
@@ -137,8 +141,10 @@ public abstract class Person implements java.io.Serializable {
 		}
 
 		System.out.println("age is " + age);
-
-		return age;
+		if(age>100) {throw new PersonException("Person is over 100 years old.");}
+		else {
+			return age;
+		}
 
 	}
 }
