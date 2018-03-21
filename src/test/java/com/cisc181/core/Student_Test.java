@@ -36,13 +36,24 @@ public class Student_Test {
 		sections.add(new Section(courses.get(2).getCourseID(),semesters.get(1).getSemesterID(),UUID.randomUUID(), 0));
 		
 		while(students.size() < 10) {
-			students.add(new Student("Omar", "S", "Ahmad",new Date(), eMajor.PHYSICS,
-					"Address", "(111)-111-1111", "test@test.com"));
+			try{students.add(new Student("Omar", "S", "Ahmad",new Date(), eMajor.COMPSI,
+					"1553 Example road", "(248)-555-1234", "omar@example.org"));}
+			catch(Exception e) {fail("Couldn't add student.");}
 		}
 	}
 
 	@Test
 	public void test() {
-		assertEquals(1, 1);
+		
+		ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
+		for(Section s : sections) {
+			for(Student p : students) {
+				enrollments.add(new Enrollment(p.getStudentID(),s.getSectionID()));
+		}
 	}
-}
+	
+	for(Enrollment e : enrollments) {
+		e.setGrade(3.5);
+		}
+	// I got stuck here ¯\_(ツ)_/¯
+}}

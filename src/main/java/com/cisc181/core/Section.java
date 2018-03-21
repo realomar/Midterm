@@ -13,9 +13,7 @@ public class Section {
 		SectionID = sectionID;
 		this.roomID = roomID;
 	}
-	// didn't implement methods because the question didn't ask for them.
-	// Have them here for testing though.
-	/* public UUID getCourseID() {
+	public UUID getCourseID() {
 		return CourseID;
 	}
 
@@ -45,5 +43,5 @@ public class Section {
 
 	public void setRoomID(int roomID) {
 		this.roomID = roomID;
-	}*/
+	}
 }

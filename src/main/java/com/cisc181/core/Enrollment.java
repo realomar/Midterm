@@ -20,7 +20,7 @@ public class Enrollment {
 		this.EnrollmentID = UUID.randomUUID();
 	}
 	
-	public void SetGrade(double grade) {
+	public void setGrade(double grade) {
 		this.grade = grade;
 	}
 }
