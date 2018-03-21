@@ -13,9 +13,6 @@ public class Semester {
 		StartDate = startDate;
 		EndDate = endDate;
 	}
-	// didn't implement methods because the question didn't ask for them.
-	// Have them here for testing though.
-	/*
 	public UUID getSemesterID() {
 		return SemesterID;
 	}
@@ -38,5 +35,5 @@ public class Semester {
 
 	public void setEndDate(Date endDate) {
 		EndDate = endDate;
-	}*/
+	}
 }

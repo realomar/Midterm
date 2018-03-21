@@ -46,10 +46,11 @@ public abstract class Person implements java.io.Serializable {
 		return DOB;
 	}
 
-	public void setDOB(Date DOB){
-		this.DOB = DOB;
-		
-		
+	@SuppressWarnings("deprecation")
+	public void setDOB(Date DOB) throws PersonException {
+		Date now = new Date();
+		if(DOB.getYear()-now.getYear() > 100) {throw new PersonException("Person is over 100 years old.");} 
+		else {this.DOB = DOB;}
 	}
 
 	public void setAddress(String newAddress) {
@@ -65,12 +66,8 @@ public abstract class Person implements java.io.Serializable {
 	
 	}
 
-	public String getPhone() throws PersonException {
-		String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(this.phone_number);
-		if(matcher.matches()) {return phone_number;}
-		else {throw new PersonException("Phone number is incorrectly formatted.");}
+	public String getPhone() {
+		return phone_number;
 	}
 
 	public void setEmail(String newEmail) {
@@ -93,14 +90,19 @@ public abstract class Person implements java.io.Serializable {
 	 */
 
 	public Person(String FirstName, String MiddleName, String LastName,
-			Date DOB, String Address, String Phone_number, String Email)
+			Date DOB, String Address, String Phone_number, String Email) throws PersonException
 	{
 		this.FirstName = FirstName;
 		this.MiddleName = MiddleName;
 		this.LastName = LastName;
 		this.setDOB(DOB);
 		this.address = Address;
-		this.setPhone(Phone_number);
+		
+		String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(Phone_number);
+		if(matcher.matches()) {this.phone_number = Phone_number;}
+		else {throw new PersonException("Phone number is incorrectly formatted.");}
 		this.email_address = Email;
 	
 	}

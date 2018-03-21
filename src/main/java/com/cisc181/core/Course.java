@@ -17,9 +17,6 @@ public class Course {
 		GradePoints = gradePoints;
 		this.Major = Major;
 	}
-	// didn't implement methods because the question didn't ask for them.
-	// Have them here for testing though.
-	/*
 	public UUID getCourseID() {
 		return CourseID;
 	}
@@ -42,5 +39,5 @@ public class Course {
 
 	public void setGradePoints(int gradePoints) {
 		GradePoints = gradePoints;
-	}*/	
+	}
 }
